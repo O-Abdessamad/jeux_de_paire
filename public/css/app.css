@@ -15,7 +15,7 @@ header {
 }
 
 .header,
-.head_header{
+.head_header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +37,7 @@ header {
     color: red;
     text-align: center;
 }
+
 .main-header {
     background-color: white;
     text-align: center;
@@ -46,9 +47,10 @@ header {
     color: red;
     margin-bottom: 10px;
 }
+
 .input_header,
 .btn_header,
-.select_header{
+.select_header {
     background-color: red;
     outline: none;
     border: none;
@@ -57,15 +59,18 @@ header {
     border-radius: 10px;
     width: 50%;
 }
-.btn_header{
+
+.btn_header {
     width: 20%;
     cursor: pointer;
 }
-.select_header{
+
+.select_header {
     cursor: pointer;
 }
+
 /* ************************* */
-.header_main{
+.header_main {
     margin-top: 20px;
     background-color: rgb(255, 151, 151);
     border-radius: 20px;
@@ -76,21 +81,24 @@ header {
     flex-direction: column;
     padding: 10px;
 }
-.h1_header_main{
+
+.h1_header_main {
     background-color: white;
     width: 50%;
     text-align: center;
     color: red;
     border-radius: 10px;
 }
-.contenu{
+
+.contenu {
     width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.joueur{
+
+.joueur {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -100,32 +108,18 @@ header {
     color: red;
     margin-top: 10px;
 }
-.joueur h2{
+
+.joueur h2 {
     width: 20%;
 }
-.diffeculte,.crono{
+
+.diffeculte,
+.crono {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -139,7 +133,8 @@ main {
     flex-direction: column;
     gap: 20px;
 }
-.h1_main{
+
+.h1_main {
     background-color: white;
     padding: 0 40px;
     border-radius: 10px;
@@ -192,9 +187,56 @@ img {
 .face {
     transform: rotateY(180deg);
 }
-.facile{
+
+.facile {
     height: 200px;
 }
+
 .no-show {
     display: none;
+}
+
+/* media queri */
+@media (max-width: 768px) {
+    .header {
+        width: 90vw;
+    }
+    .head_header{
+        width: 90%;
+        padding: 20px 0px;
+    }
+    .head_header h1{
+        font-size: 2.5rem;
+    }
+    .main-header{
+        width: 90%;
+    }
+    .header_main{
+        width: 90vw;
+    }
+    .h1_header_main{
+        width: 90vw;
+    }
+    .joueur{
+        padding: 10px 20px;
+    }
+    .joueur h2{
+        font-size: 14px;
+        margin-right: 15px;
+    }
+    .diffeculte,
+    .crono{
+        font-size: 14px;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    .container {
+        width: 390px;
+        height: 300px;
+    }
+    .facile {
+        height: 100px;
+    }
 }
