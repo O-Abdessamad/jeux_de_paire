@@ -3,6 +3,7 @@ let images = [1, 2, 3, 4, 5, 6, 7, 8];
 let input_header = document.querySelector(".input_header");
 let select_header = document.querySelector(".select_header");
 let btn_header = document.querySelector(".btn_header");
+let timme="";
 // ----------- div -------
 let div_contenu = document.querySelector(".contenu");
 let div_card = document.querySelector(".container");
@@ -10,6 +11,7 @@ let div_headerr = document.querySelector(".headerr");
 let div_main = document.querySelector("main");
 let div_main_container = document.querySelector(".container");
 let h1_main = document.querySelector(".h1_main");
+let h2_main=document.querySelector(".h2_main");
 
 
 btn_header.addEventListener("click", () => {
@@ -25,15 +27,17 @@ btn_header.addEventListener("click", () => {
         }
         return;
     }
-    // ---------------- end table de score -----------------
-    
-    // ---------------- end table de score -----------------
-
     // ---------------- creation des card  -----------------
     switch (select_header.value) {
         case "facile":
             
             h1_main.innerHTML = `${input_header.value}`;
+            // ------ chrono ----------
+            minutes=0
+            seconds=0
+            timme=setInterval(timeGenerator,1000);
+            // ------ end chrono ----------
+
             console.log(h1_main.innerHTML);
 
             images.sort(() => Math.random() - 0.5);
@@ -62,6 +66,11 @@ btn_header.addEventListener("click", () => {
             break;
         case "Normal":
             h1_main.innerHTML = `${input_header.value}`;
+             // ------ chrono ----------
+            minutes=0
+            seconds=0
+            timme=setInterval(timeGenerator,1000);
+            // ------ end chrono ----------
             images.sort(() => Math.random() - 0.5);
             let card_Normal = `
                 <div class="card">
@@ -102,6 +111,11 @@ btn_header.addEventListener("click", () => {
             break;
         case "Difficile":
             h1_main.innerHTML = `${input_header.value}`;
+             // ------ chrono ----------
+            minutes=0
+            seconds=0
+            timme=setInterval(timeGenerator,1000);
+            // ------ end chrono ----------
             images.sort(() => Math.random() - 0.5);
             let card_Difficile = `
             
@@ -181,50 +195,7 @@ btn_header.addEventListener("click", () => {
     div_main.classList.remove("no-show");
     div_headerr.classList.add("no-show");
 
-
-
-
-
-
-
-
-
-
-
-
-    // ------------ end cration des joueurs et de carte
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // ------------ end cration des cartes -----------------------
 
 
     // -------------- the game -------------
@@ -310,6 +281,26 @@ btn_header.addEventListener("click", () => {
 
             });
             score = 0;
+             // ---------------- table des score -----------------
+                let chrono = h2_main.innerHTML;
+                let contenu = `
+                        <div class="joueur">
+                            <h2>${input_header.value} </h2>
+                            <div class="diffeculte">
+                                <i class="fa-solid fa-signs-post"></i>
+                                <h4>${select_header.value} </h4>
+                            </div>
+                            <div class="crono">
+                                
+                                <h4> ${chrono} </h4>
+                            </div>
+                        </div>`;
+
+                div_contenu.innerHTML += contenu;
+                input_header.value = "";
+            // ---------------- end table de score -----------------
+
+            clearInterval(timme);
             div_main.classList.add("no-show");
             div_headerr.classList.remove("no-show");
         }, 1000);
@@ -317,89 +308,19 @@ btn_header.addEventListener("click", () => {
     }
     // ------------- end fin de jeux ---------------
 
+});
 
+let seconds=0;
+let minutes=0;
+const timeGenerator = ()=>{
+    seconds+=1;
 
+    if (seconds>=60) {
+        minutes+=1;
+        seconds=0;        
+    }
 
-
-
-
-
-
-
-
-    // ---------------- end creation des card -----------------
-    let contenu = `
-            <div class="joueur">
-                <h2>${input_header.value} </h2>
-                <div class="diffeculte">
-                    <i class="fa-solid fa-signs-post"></i>
-                    <h4>${select_header.value} </h4>
-                </div>
-                <div class="crono">
-                    <i class="fa-regular fa-clock"></i>
-                    <h4>00:mun / 50:s</h4>
-                </div>
-            </div>`;
-
-    div_contenu.innerHTML += contenu;
-    input_header.value = "";
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// allCards.forEach(card => {
-//     card.addEventListener("click", () => {
-//         // show card
-//         card.classList.add("flip");
-//         // end show card
-
-//         if (!firstCard) {
-//             firstCard=card;
-//             console.log("firstCard " +firstCard);
-//         } else if (!secondCard) {
-//             secondCard=card;
-//             console.log("firstCard " +firstCard);
-
-//         }
-
-
-//     });
-// });
+    let secondValue = seconds <10 ? `0${seconds}` : seconds;
+    let minutesValue = minutes <10 ? `0${minutes}` : minutes;
+    h2_main.innerHTML=`<i class="fa-regular fa-clock"></i> ${minutesValue}:min / ${secondValue}:s`;
+}

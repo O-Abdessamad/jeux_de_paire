@@ -195,6 +195,13 @@ img {
 .no-show {
     display: none;
 }
+.h2_main{
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 50% 20% / 10% 40%;
+}
 
 /* media queri */
 @media (max-width: 768px) {
