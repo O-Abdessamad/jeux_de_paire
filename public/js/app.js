@@ -29,7 +29,7 @@ btn_header.addEventListener("click", () => {
     }
     // ---------------- creation des card  -----------------
     switch (select_header.value) {
-        case "facile":
+        case "Facile":
             
             h1_main.innerHTML = `${input_header.value}`;
             // ------ chrono ----------
@@ -43,7 +43,7 @@ btn_header.addEventListener("click", () => {
             images.sort(() => Math.random() - 0.5);
             console.log(`${images[0]}`);
 
-            let card_facile = `
+            let card_Facile = `
             <div class="card">
                 <img src="./public/image/images${images[0]}.jpeg" class="face">
                 <img src="./public/image/doimages.png" class="do" alt="do">
@@ -61,8 +61,8 @@ btn_header.addEventListener("click", () => {
                 <img src="./public/image/doimages.png" class="do"  alt="do">
             </div>
             `;
-            div_main_container.classList.add("facile");
-            div_card.innerHTML = card_facile;
+            div_main_container.classList.add("Facile");
+            div_card.innerHTML = card_Facile;
             break;
         case "Normal":
             h1_main.innerHTML = `${input_header.value}`;
@@ -106,7 +106,7 @@ btn_header.addEventListener("click", () => {
                     <img src="./public/image/doimages.png" class="do"  alt="do">
                 </div>
                 `;
-            div_main_container.classList.remove("facile");
+            div_main_container.classList.remove("Facile");
             div_card.innerHTML = card_Normal;
             break;
         case "Difficile":
@@ -185,7 +185,7 @@ btn_header.addEventListener("click", () => {
                     </div>
 
                     `;
-            div_main_container.classList.remove("facile");
+            div_main_container.classList.remove("Facile");
             div_card.innerHTML = card_Difficile;
             break;
 
@@ -288,11 +288,11 @@ btn_header.addEventListener("click", () => {
                             <h2>${input_header.value} </h2>
                             <div class="diffeculte">
                                 <i class="fa-solid fa-signs-post"></i>
-                                <h4>${select_header.value} </h4>
+                                <h5>${select_header.value} </h5>
                             </div>
                             <div class="crono">
                                 
-                                <h4> ${chrono} </h4>
+                                <h5> ${chrono} </h5>
                             </div>
                         </div>`;
 
